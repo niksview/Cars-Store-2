@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      
+</head>
+<body>
+    <div class="comtainer">
+        <div class="row mt-3">
+            <div class="col-mid-12">
+                <nav class="navbar navbar-expand-lg bg-body-secondary">
+                    <div class="container-fluid">
+                      <a class="navbar-brand btn btn-warning" href="/">Cars Store</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Features
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="/catfilter/1">Parts Pairs</a></li>
+                              <li><a class="dropdown-item" href="/catfilter/3">Parts Colour</a></li>
+                              <li><a class="dropdown-item" href="/catfilter/2">Parts Size</a></li>
+                              <li><a class="dropdown-item" href="/catfilter/4">Parts Accessories</a></li>
+                              <li><a class="dropdown-item" href="/viewcart">Garage</a></li> 
+                            </ul>
+                          </li> 
+                          <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/viewcart">Store</a>
+                          </li>
+                          {% if user.is_authenticated %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                          </li>
+                          {% else %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                          </li>
+                          {% endif %}
+                          
+                        </ul>
+                       
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+        <!-- Header End-->

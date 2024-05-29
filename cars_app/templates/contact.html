@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="static/asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/asset/css/style.css" />
+</head>
+<body>
+    <div class="container">
+      <div class="row mt-5">
+        
+    </div>
+        <div class="row">
+            <div class="col-md-5 shadow mt-4 mx-auto">
+                <h2>Contact Us</h2>
+                {% if errmsg %}
+                <div class="alert alert-danger">
+                    {{errmsg}}
+                </div>
+                {% endif %}
+                <form method="POST" action="/register">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="input1" class="form-label"><strong>Name:</strong></label>
+                        <input type="text" name="uname" class="form-control" id="input1" placeholder="Enter your name">
+                      </div>
+                      <div class="mb-3">
+                        <label for="input2" class="form-label"><strong>Email:</strong></label>
+                        <input type="email" name="upass" class="form-control" id="input2" placeholder="Enter your email">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="input3" class="form-label"><strong>Mobile No.:</strong></label>
+                        <input type="password" name="ucpass" class="form-control" id="input3" placeholder="Enter your mobile number">
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="input4" class="form-label"><strong>Message:</strong></label>
+                        <input type="textarea" name="msg" class="form-control" id="input4" placeholder="Enter message">
+                      </div>
+
+                      <div class="mb-3">
+                        &nbsp&nbsp&nbsp&nbsp <input type="submit" class="btn btn-warning" value="Sent Message" />
+                        
+                      </div>
+                      {% if success %}
+                    <div class="alert alert-success">
+                        {{success}}
+                    </div>
+                    {% endif %}
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="static/asset/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% endblock 'main' %}
